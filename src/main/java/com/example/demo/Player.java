@@ -1,6 +1,6 @@
 package com.example.demo;
 
-public class Player {
+public class Player{
     public int id;
     public String name;
     public int age;
@@ -9,6 +9,7 @@ public class Player {
     public int winners;
     public int games;
     public String club;
+    public Double ratio;
 
     public Player(){
 
@@ -89,9 +90,14 @@ public class Player {
         this.club = club;
     }
 
+    public double getRatio() {
+        return (double) this.winners /this.games;
+    }
+
     @Override
     public String toString() {
         return "Player{" +
+                "ratio="+ratio +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +

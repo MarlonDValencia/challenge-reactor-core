@@ -1,8 +1,10 @@
 package com.example.demo;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class PlayerFilterTest{
@@ -15,17 +17,19 @@ public class PlayerFilterTest{
 
     @Test
     void PlayersOlderThan34(){
-        Flux<Player> listFlux = PlayerFilter.PlayersOlderThan34();
+        Flux<Player> olderThan34Players = PlayerFilter.PlayersOlderThan34();
+        assert (olderThan34Players.);
     }
 
     @Test
     void OneClubPlayers(){
-        Flux<Player> listFlux = PlayerFilter.OneClubPlayers("Juventus");
+        Flux<Player> OnlyThisCLubPlayers = PlayerFilter.OneClubPlayers("Juventus");
     }
 
     @Test
     void getRanking(){
-        Flux<Player> listFlux = PlayerFilter.getRanking("Argentina");
+        Flux<List<Player>> listFlux = PlayerFilter.getRanking("Argentina");
+        listFlux.subscribe(System.out::println);
     }
 
 
