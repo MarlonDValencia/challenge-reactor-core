@@ -33,13 +33,12 @@ public class PlayerFilter {
                 .switchIfEmpty(Mono.error(new RuntimeException("No hay jugadores de dicho club")));
     }
 
-    public static Flux<List<Player>> getRanking(String nation) {
+    public static Flux<List<Player>> getRanking() {
         List<Player> list = CsvUtilFile.getPlayers();
         Flux<Player> PlayerFlux = Mono.just(list).flatMapMany(Flux::fromIterable);
         return PlayerFlux
                 .buffer(100)
                 .flatMap(jugador -> Flux.fromStream(jugador.parallelStream()))
-                .filter(jugador -> jugador.getNational().equals(nation))
                 .groupBy(Player::getNational)
                 .flatMap(Flux::collectList)
                 .map(lista -> {

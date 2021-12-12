@@ -18,7 +18,6 @@ public class PlayerFilterTest{
     @Test
     void PlayersOlderThan34(){
         Flux<Player> olderThan34Players = PlayerFilter.PlayersOlderThan34();
-        assert (olderThan34Players.);
     }
 
     @Test
@@ -28,8 +27,7 @@ public class PlayerFilterTest{
 
     @Test
     void getRanking(){
-        Flux<List<Player>> listFlux = PlayerFilter.getRanking("Argentina");
-        listFlux.subscribe(System.out::println);
+        Flux<List<Player>> listFlux = PlayerFilter.getRanking();
     }
 
 
