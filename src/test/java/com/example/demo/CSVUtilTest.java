@@ -1,5 +1,4 @@
 package com.example.demo;
-
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,6 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 public class CSVUtilTest {
 
     @Test
@@ -59,10 +57,8 @@ public class CSVUtilTest {
                 )
                 .distinct()
                 .collectMultimap(Player::getClub);
-
         assert listFilter.block().size() == 322;
     }
-
 
 
 }

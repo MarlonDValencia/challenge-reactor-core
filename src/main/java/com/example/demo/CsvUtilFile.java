@@ -27,9 +27,7 @@ public class CsvUtilFile {
                     Integer.parseInt(strings[6].trim()),
                     strings[7]
             )));
-
            return list;
-
         } catch (IOException | CsvException e) {
             throw new IllegalArgumentException(e.getMessage());
         }
